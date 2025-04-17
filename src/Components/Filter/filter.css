@@ -1,0 +1,58 @@
+.filter-container {
+    width: 97%;
+    padding: 10px;
+    margin: auto;
+}
+.filter-component {
+    position: relative;
+    width: 550px;
+    height: 100px;
+    margin-top: 50px;
+    padding: 10px;
+  
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 12px;
+    background-color: #fff;
+    z-index: 1;
+    background-clip: padding-box;
+  }
+  
+  .filter-component::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  
+    background: linear-gradient(to right, #9f77f6, #408df9);
+    border-radius: inherit;
+    z-index: -1;
+    padding: 3px;
+    mask:
+      linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    mask-composite: exclude
+  }  
+.filter-dropdown {
+    width: 200px !important;
+}
+.filter-input {
+    width: 200px;
+    height: 40px;
+    border-top-right-radius: 0 !important;
+    border-bottom-right-radius: 0 !important;
+}
+.filter-input-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.filter-input-container button {
+    width: 40px;
+    height: 40px;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}

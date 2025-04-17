@@ -1,0 +1,29 @@
+.task-component {
+    border: #5a41bc 2px solid;
+    width: 30%;
+    height: 300px;
+    border-radius: 10px;
+    padding: 20px;
+}
+.task-top-info {
+    display: flex;
+    align-items: center;
+}
+.task-top-info > div {
+    margin-right: 20px;
+}
+.task-smallview-date {
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.task-smallview-title {
+    margin-top: 30px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    color: #5a41bc;
+}
+.task-smallview-content {
+    margin-top: 20px;
+    word-break: break-all;
+}
