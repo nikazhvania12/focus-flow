@@ -8,11 +8,20 @@ function Filter() {
     return (
         <div className='filter-container'>
             <div className="filter-component">
-                <Dropdown className=''>
+                <Dropdown>
                     <Dropdown.Toggle variant="outline-primary" id="dropdown-basic" className='filter-dropdown'>
                         Priority
                     </Dropdown.Toggle>
-
+                    <Dropdown.Menu>
+                        <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
+                        <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
+                        <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
+                    </Dropdown.Menu>
+                </Dropdown>
+                <Dropdown>
+                    <Dropdown.Toggle variant="outline-primary" id="dropdown-basic" className='filter-dropdown'>
+                        Difficulty
+                    </Dropdown.Toggle>
                     <Dropdown.Menu>
                         <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
                         <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>

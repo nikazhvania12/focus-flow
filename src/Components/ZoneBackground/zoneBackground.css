@@ -1,0 +1,65 @@
+.zone-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -9999;
+    overflow: hidden;
+    background: linear-gradient(135deg, #f0f4ff, #f3e8ff);
+    pointer-events: none;
+  }
+  
+  /* Prevent duplicates by hiding all except the first */
+  .zone-background:not(:first-of-type) {
+    display: none;
+  }
+  
+  /* Subtle glow blobs */
+  .zone-glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.18;
+    animation: subtle-pulse 10s ease-in-out infinite;
+    mix-blend-mode: screen;
+  }
+  
+  .zone-glow.one {
+    width: 500px;
+    height: 500px;
+    background: #c084fc;
+    top: -100px;
+    left: -100px;
+  }
+  
+  .zone-glow.two {
+    width: 600px;
+    height: 600px;
+    background: #93c5fd;
+    bottom: -120px;
+    right: -100px;
+  }
+  
+  .zone-glow.three {
+    width: 400px;
+    height: 400px;
+    background: #d8b4fe;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.1;
+    animation-delay: 3s;
+  }
+  
+  @keyframes subtle-pulse {
+    0%, 100% {
+      transform: scale(1);
+      opacity: 0.15;
+    }
+    50% {
+      transform: scale(1.05);
+      opacity: 0.22;
+    }
+  }
+  

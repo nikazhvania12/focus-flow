@@ -1,30 +1,21 @@
 import './Header.css';
 import Logo from './logo.png'
 import { Button } from 'react-bootstrap';
+import { useNavigate, useLocation } from 'react-router-dom';
 
 function Header() {
+    const navigate = useNavigate();
+    const location = useLocation();
     return (
-
-    <div className="header">
-        <div className='header-left'>
-            <div className='logo'>
-            FocusFl<img className='header-logo' src={Logo} alt="o"></img>w
-            </div>
-            <div className = 'header-create-task'>
-            <Button variant="outline-primary" className='header-create-task-btn'>
-                <div className='header-btn-content'>
-                    <span>+</span>
-                    {"\u00A0"}
-                    <span>Add Task</span>
+        location.pathname != '/' &&
+        <div className="header">
+            <div className='header-left'>
+                <div className='logo'>
+                FocusFl<img className='header-logo' src={Logo} alt="o"></img>w
                 </div>
-            </Button>
             </div>
+            <Button onClick={() => navigate('/')} variant="success" className='header-right-btn'>Sign Out</Button>
         </div>
-        <div className='header-right'>
-            <Button variant="success" className='header-right-btn'>Log in</Button>
-            <Button variant="success" className='header-right-btn'>Register</Button>
-        </div>
-    </div>
     )
 }
 

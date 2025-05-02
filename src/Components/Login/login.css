@@ -1,0 +1,93 @@
+/* Wrapper */
+.login-wrapper {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    font-family: 'Segoe UI', sans-serif;
+  }
+  
+  /* Card */
+  .login-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 50px rgba(147, 197, 253, 0.2);
+    width: 100%;
+    max-width: 400px;
+  }
+  
+  /* Title */
+  .login-title {
+    text-align: center;
+    font-size: 2rem;
+    color: #7c3aed;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Toggle */
+  .login-toggle {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .login-toggle button {
+    background: none;
+    border: none;
+    color: #999;
+    font-size: 1rem;
+    margin: 0 1rem;
+    border-bottom: 2px solid transparent;
+    padding-bottom: 0.25rem;
+    cursor: pointer;
+    transition: 0.2s;
+  }
+  
+  .login-toggle button.active {
+    color: #3b82f6;
+    border-color: #3b82f6;
+  }
+  
+  /* Form */
+  .login-form input {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem;
+    background: #f0f4ff;
+    font-size: 0.95rem;
+  }
+  
+  .login-form input::placeholder {
+    color: #999;
+  }
+  
+  .login-form button {
+    width: 100%;
+    padding: 0.75rem;
+    background: linear-gradient(to right, #6366f1, #3b82f6);
+    border: none;
+    border-radius: 0.5rem;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  
+  .login-form button:hover {
+    background: linear-gradient(to right, #4f46e5, #2563eb);
+  }
+  
+  /* Forgot Password */
+  .login-forgot {
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: #555;
+  }
+  

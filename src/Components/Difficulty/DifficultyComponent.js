@@ -1,8 +1,7 @@
 import './difficultyComponent.css';
 
-function DifficultyComponent() {
-    const data = "Easy";
-
+function DifficultyComponent({ data }) {
+    
     const themes = [
         {name: "Easy", background: "#08A508"},
         {name: "Normal", background: "#FFBE0B"},

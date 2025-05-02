@@ -1,0 +1,49 @@
+.lightning-bg {
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: radial-gradient(circle at center, #dbeafe, #ede9fe);
+    overflow: hidden;
+    pointer-events: none;
+  }
+  
+  /* Lightning bolts */
+  .lightning-bolt {
+    position: absolute;
+    top: -50%;
+    width: 2px;
+    height: 200%;
+    background: linear-gradient(to bottom, #ffffff, transparent);
+    opacity: 0.1;
+    filter: drop-shadow(0 0 10px #93c5fd);
+    transform: rotate(20deg);
+    animation: lightning-zap 2s infinite ease-in-out;
+  }
+  
+  .lightning-bolt:nth-child(1) {
+    left: 20%;
+  }
+  .lightning-bolt.delay-1 {
+    left: 40%;
+    animation-delay: 0.4s;
+  }
+  .lightning-bolt.delay-2 {
+    left: 60%;
+    animation-delay: 0.8s;
+  }
+  .lightning-bolt.delay-3 {
+    left: 80%;
+    animation-delay: 1.2s;
+  }
+  
+  @keyframes lightning-zap {
+    0%, 100% {
+      opacity: 0.05;
+      transform: rotate(20deg) scaleY(1);
+    }
+    50% {
+      opacity: 0.8;
+      transform: rotate(20deg) scaleY(1.5);
+    }
+  }
+  

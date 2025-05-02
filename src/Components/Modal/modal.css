@@ -1,0 +1,9 @@
+.add-task-select {
+    width: 100%;
+}
+#description-textarea {
+    resize: none;
+}
+.modal-dialog {
+    box-shadow: 0 0 10px #3768b3, 0 0 20px #3768b3;
+}

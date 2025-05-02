@@ -4,8 +4,7 @@ import MediumImg from '../../Resources/MediumPriority.png'
 import HighImg from '../../Resources/HighPriority.png'
 
 
-function PriorityComponent() {
-    const data = "High";
+function PriorityComponent({ data }) {
 
     const themes = [
         {name: "Low", background: "#08A508", icon: LowImg},

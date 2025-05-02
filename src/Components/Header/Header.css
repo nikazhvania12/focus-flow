@@ -19,7 +19,11 @@
     background: linear-gradient(to right, #8f5aff 30%, #4b88e3, #e35cf0 70%);
     border-radius: 2px;
     box-shadow: 0 0 4px #8f5aff, 0 0 10px rgba(143, 90, 255, 0.2);
-  }
+}
+.plus {
+    font-family: monospace;
+    font-size: 25px;
+}
 .header-logo {
     height: 50px;
     width: 50px;
@@ -46,16 +50,6 @@
     width: 60%;
     align-items: center;
     justify-content: space-between;
-}
-.header-create-task{
-    display: flex;
-    width: 30%;
-}
-.header-create-task-btn {
-    margin: 0 !important;
-    padding: 7px 60px !important;
-    white-space: nowrap;
-
 }
 .header-btn-content {
     width: 100%;

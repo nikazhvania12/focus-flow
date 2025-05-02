@@ -1,20 +1,44 @@
 import DifficultyComponent from '../Difficulty/DifficultyComponent';
 import PriorityComponent from '../Priority/PriorityComponent';
+import { Button } from 'react-bootstrap';
+
 import './taskComponent.css'
 
-function TaskComponent() {
+function TaskComponent({ task, clickMethod }) {
     return (
-        <div className="task-component">
+        <div className="task-component" onClick={() => clickMethod("View")}>
             <div className='task-top-info'>
-                <div className='task-smallview-date'>30 მარტი, 2025</div>
-                <PriorityComponent />
-                <DifficultyComponent />
+                <div className='task-smallview-date'>{task.deadline}</div>
+                <div className='task-helper-components'>
+                    <PriorityComponent data={task.priority} />
+                    <DifficultyComponent data={task.difficulty} />
+                </div>
             </div>
             <div className='task-smallview-title'>
-                <p>this is a very large title</p>
+                <p>{task.title}</p>
             </div>
             <div className='task-smallview-content'>
-                contentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontent
+                {task.description && task.description.length >= 190 ? `${task.description.substring(0, 190)}...` : task.description}
+            </div>
+            <div className='task-display-buttons'>
+                <Button onClick={(e) => {e.stopPropagation(); clickMethod("Delete")}} variant="outline-danger">
+                <i class="bi bi-trash"></i>
+                {"\u00A0"}
+                {"\u00A0"}
+                <p>Delete</p>
+                </Button>
+                
+                {"\u00A0"}
+                {"\u00A0"}
+                {"\u00A0"}
+                {"\u00A0"}
+
+                <Button variant="outline-primary" onClick={(e) => {e.stopPropagation(); clickMethod("Edit")}}>
+                <i class="bi bi-pen"></i>
+                {"\u00A0"}
+                {"\u00A0"}
+                <p>Edit</p>
+                </Button>
             </div>
         </div>
     )

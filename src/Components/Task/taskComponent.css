@@ -4,13 +4,18 @@
     height: 300px;
     border-radius: 10px;
     padding: 20px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    background-color: #fff;
 }
+.task-component:hover {
+    transform: scale(1.02);
+}
+
 .task-top-info {
     display: flex;
     align-items: center;
-}
-.task-top-info > div {
-    margin-right: 20px;
+    justify-content: space-between;
 }
 .task-smallview-date {
     font-weight: bold;
@@ -26,4 +31,26 @@
 .task-smallview-content {
     margin-top: 20px;
     word-break: break-all;
+}
+.task-helper-components {
+    width: 55%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.task-display-buttons {
+    margin-top: 1rem;
+}
+.task-display-buttons > button {
+    padding: 3px 50px !important;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.task-display-buttons {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
 }
