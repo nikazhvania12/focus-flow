@@ -6,7 +6,8 @@ import './taskComponent.css'
 
 function TaskComponent({ task, clickMethod }) {
     return (
-        <div className="task-component" onClick={() => clickMethod("View")}>
+        task &&
+        <div className="task-component" onClick={() => clickMethod("View", task)}>
             <div className='task-top-info'>
                 <div className='task-smallview-date'>{task.deadline}</div>
                 <div className='task-helper-components'>
@@ -14,14 +15,16 @@ function TaskComponent({ task, clickMethod }) {
                     <DifficultyComponent data={task.difficulty} />
                 </div>
             </div>
-            <div className='task-smallview-title'>
-                <p>{task.title}</p>
-            </div>
-            <div className='task-smallview-content'>
-                {task.description && task.description.length >= 190 ? `${task.description.substring(0, 190)}...` : task.description}
+            <div>
+                <div className='task-smallview-title'>
+                    <p>{task.title}</p>
+                </div>
+                <div className='task-smallview-content'>
+                    {task.description && task.description.length >= 150 ? `${task.description.substring(0, 150)}...` : task.description}
+                </div>
             </div>
             <div className='task-display-buttons'>
-                <Button onClick={(e) => {e.stopPropagation(); clickMethod("Delete")}} variant="outline-danger">
+                <Button onClick={(e) => {e.stopPropagation(); clickMethod("Delete", task)}} variant="outline-danger">
                 <i class="bi bi-trash"></i>
                 {"\u00A0"}
                 {"\u00A0"}
@@ -33,7 +36,7 @@ function TaskComponent({ task, clickMethod }) {
                 {"\u00A0"}
                 {"\u00A0"}
 
-                <Button variant="outline-primary" onClick={(e) => {e.stopPropagation(); clickMethod("Edit")}}>
+                <Button variant="outline-primary" onClick={(e) => {e.stopPropagation(); clickMethod("Edit", task)}}>
                 <i class="bi bi-pen"></i>
                 {"\u00A0"}
                 {"\u00A0"}

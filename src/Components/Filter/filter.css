@@ -37,20 +37,19 @@
 .filter-dropdown:hover {
   color: white !important;
 }
+.filter-task-select {
+  width: 100%;
+}
 .filter-input {
     width: 200px;
     height: 40px;
-    border-top-right-radius: 0 !important;
-    border-bottom-right-radius: 0 !important;
 }
 .filter-input-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-.filter-input-container button {
-    width: 40px;
-    height: 40px;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
+.filter-input-container > div, .filter-input-container > input {
+  margin: 15px;
+  width: 200px;
 }

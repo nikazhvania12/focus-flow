@@ -1,26 +1,60 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import ModalComp from '../Modal/Modal';
 import TaskComponent from '../Task/TaskComponent';
 import Filter from '../../Components/Filter/Filter';
 import ZoneBackground from '../ZoneBackground/ZoneBackground';
 import './Home.css'
 import { Button } from 'react-bootstrap';
+import GetTasks from '../../API/GetTasks';
+import { useNavigate } from 'react-router';
 
 
-function Home() {
+function Home({ currentUser }) {
     const [show, setShow] = useState(false);
     const [action, setAction] = useState("");
-    const task = {
-        deadline: '2005-03-30',
-        title: 'this is a very large title',
-        description: 'contentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentcontentddddddddddddddddddddddddddddddddddddddddddddddddddddddd',
-        priority: "High",
-        difficulty: "Normal"
-    }
+    const [selectedTask, setSelectedTask] = useState(null);
+    const [tasks, setTasks] = useState({
+        TodoTasks: [],
+        ProgressTasks: [],
+        CompletedTasks: []
+    });
 
-    function HandleShowModal(currentAction) {
+    const [filter, setFilter] = useState({
+        priority_id: 0,
+        difficulty_id: 0,
+        val: '',
+        user_id: currentUser.id
+    })
+
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if(!currentUser)
+            navigate('/')
+    }, [])
+
+    useEffect(() => {
+        if(tasks) {
+            async function Tasks() {
+                const resp = await GetTasks(filter);
+                setTasks(task => ({
+                    ...task,
+                    TodoTasks: resp.filter(x => x.status.id === 1),
+                    ProgressTasks: resp.filter(x => x.status.id === 2),
+                    CompletedTasks: resp.filter(x => x.status.id === 3)
+                }));
+            }
+        Tasks();
+        }
+    }, [filter])
+    function HandleShowModal(currentAction, task) {
         setAction(currentAction);
         setShow(true);
+        if(task) {
+            setSelectedTask(task);
+        }
+
+
     }
 
     return (
@@ -29,7 +63,7 @@ function Home() {
         <div style={{ position: 'relative', zIndex: 1 }}>
         <div className='home-container'>
             <div className='home-top'>
-                <Filter className="filter"/>
+                <Filter className="filter" filter={filter} setFilter={setFilter}/>
                 <Button onClick={() => HandleShowModal("Add")} variant="primary" className='home-create-task-btn'>
                     <div className='home-btn-content'>
                         <i class="bi bi-journal-plus"></i>
@@ -48,11 +82,32 @@ function Home() {
             </div>
             <div className = 'header-create-task'>
             </div>
-            <div className='tasks-container'>
-                <TaskComponent task={task} clickMethod={HandleShowModal} />
+            <div className='tasks-container-container'>
+                <div className='tasks-content-container'>
+                    {tasks && tasks.TodoTasks.map((task, index) => {
+                        return (
+                            <TaskComponent key={index} task={task} clickMethod={HandleShowModal} />
+                        )
+                    })}
+                </div>
+                <div className='tasks-content-container'>
+                    {tasks && tasks.ProgressTasks.map((task, index) => {
+                        return (
+                            <TaskComponent key={index} task={task} clickMethod={HandleShowModal} />
+                        )
+                    })}
+                </div>
+                <div className='tasks-content-container'>
+                    {tasks && tasks.CompletedTasks.map((task, index) => {
+                        return (
+                            <TaskComponent key={index} task={task} clickMethod={HandleShowModal} />
+                        )
+                    })}
+                </div>
             </div>
 
-        <ModalComp show={show} setShow={setShow} action={action} task={task} />
+        <ModalComp show={show} setShow={setShow} action={action} task={selectedTask} 
+        tasks={tasks} setTasks={setTasks} />
         </div>
         </div>
       </div>

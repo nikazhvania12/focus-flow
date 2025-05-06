@@ -1,25 +1,21 @@
 import './priorityComponent.css';
-import LowImg from '../../Resources/LowPriority.png'
-import MediumImg from '../../Resources/MediumPriority.png'
-import HighImg from '../../Resources/HighPriority.png'
 
 
 function PriorityComponent({ data }) {
-
     const themes = [
-        {name: "Low", background: "#08A508", icon: LowImg},
-        {name: "Medium", background: "#FFBE0B", icon: MediumImg},
-        {name: "High", background: "#FA4D4D", icon: HighImg}
+        {name: "Low", background: "#08A508"},
+        {name: "Medium", background: "#FFBE0B"},
+        {name: "High", background: "#FA4D4D"}
     ]
 
-    const theme = themes.find(x => x.name === data);
+    const theme = themes.find(x => x.name === data.name);
 
     return (
         theme && 
         <div className="priority-component" style={{borderColor: theme.background, color: theme.background}}>
-            <img src={theme.icon} />
+            <img src={data.filepath} />
             {"\u00A0"}
-            <p>{theme.name}</p>
+            <p>{data.name}</p>
         </div>
     )
 }
