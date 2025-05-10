@@ -9,6 +9,7 @@ async function EditTaskApi(model, id) {
             headers: {
                 'Content-Type': 'application/json',
             },
+            credentials: 'include',
             body: jsonData
         })
     

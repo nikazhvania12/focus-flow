@@ -205,6 +205,7 @@ function EditTask({show, setShow, task, setTasks, priority, difficulty, status})
     };
     
     const EditedTask = await EditTaskApi(updatedTask, task.id);
+    console.log(EditedTask);
   
     let statusKey = '';
     switch (EditedTask.status.id) {
